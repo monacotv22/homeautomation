@@ -1,0 +1,88 @@
+2018-04-07 03:58:54 WARNING (MainThread) [homeassistant.components.cloud.iot] Connection closed: Connection error
+2018-04-10 02:19:29 WARNING (MainThread) [homeassistant.components.cloud.iot] Connection closed: Received non-Text message: 8
+2018-04-10 02:19:33 WARNING (MainThread) [homeassistant.components.cloud.iot] Unable to refresh token: Rate exceeded
+2018-04-10 02:19:38 WARNING (MainThread) [homeassistant.components.cloud.iot] Unable to connect: Cannot connect to host cloud.hass.io:8000 ssl:True [Connection refused]
+2018-04-10 02:19:46 WARNING (MainThread) [homeassistant.components.cloud.iot] Unable to connect: Cannot connect to host cloud.hass.io:8000 ssl:True [Connection refused]
+2018-04-10 09:01:43 WARNING (MainThread) [homeassistant.components.cloud.iot] Connection closed: Connection error
+2018-04-10 09:02:44 ERROR (MainThread) [homeassistant.components.cloud.iot] Unexpected error
+Traceback (most recent call last):
+  File "/usr/src/app/homeassistant/components/cloud/iot.py", line 68, in connect
+    yield from self._handle_connection()
+  File "/usr/src/app/homeassistant/components/cloud/iot.py", line 100, in _handle_connection
+    yield from hass.async_add_job(auth_api.check_token, self.cloud)
+  File "/usr/local/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/src/app/homeassistant/components/cloud/auth_api.py", line 108, in check_token
+    if cognito.check_token():
+  File "/usr/local/lib/python3.6/site-packages/warrant/__init__.py", line 260, in check_token
+    self.renew_access_token()
+  File "/usr/local/lib/python3.6/site-packages/warrant/__init__.py", line 555, in renew_access_token
+    AuthParameters=auth_params,
+  File "/usr/local/lib/python3.6/site-packages/botocore/client.py", line 312, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/usr/local/lib/python3.6/site-packages/botocore/client.py", line 592, in _make_api_call
+    operation_model, request_dict)
+  File "/usr/local/lib/python3.6/site-packages/botocore/endpoint.py", line 141, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/usr/local/lib/python3.6/site-packages/botocore/endpoint.py", line 170, in _send_request
+    success_response, exception):
+  File "/usr/local/lib/python3.6/site-packages/botocore/endpoint.py", line 249, in _needs_retry
+    caught_exception=caught_exception, request_dict=request_dict)
+  File "/usr/local/lib/python3.6/site-packages/botocore/hooks.py", line 227, in emit
+    return self._emit(event_name, kwargs)
+  File "/usr/local/lib/python3.6/site-packages/botocore/hooks.py", line 210, in _emit
+    response = handler(**kwargs)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 183, in __call__
+    if self._checker(attempts, response, caught_exception):
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 251, in __call__
+    caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 277, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 317, in __call__
+    caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 223, in __call__
+    attempt_number, caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "https://cognito-idp.us-east-1.amazonaws.com/"
+2018-04-10 09:03:48 ERROR (MainThread) [homeassistant.components.cloud.iot] Unexpected error
+Traceback (most recent call last):
+  File "/usr/src/app/homeassistant/components/cloud/iot.py", line 68, in connect
+    yield from self._handle_connection()
+  File "/usr/src/app/homeassistant/components/cloud/iot.py", line 100, in _handle_connection
+    yield from hass.async_add_job(auth_api.check_token, self.cloud)
+  File "/usr/local/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/src/app/homeassistant/components/cloud/auth_api.py", line 108, in check_token
+    if cognito.check_token():
+  File "/usr/local/lib/python3.6/site-packages/warrant/__init__.py", line 260, in check_token
+    self.renew_access_token()
+  File "/usr/local/lib/python3.6/site-packages/warrant/__init__.py", line 555, in renew_access_token
+    AuthParameters=auth_params,
+  File "/usr/local/lib/python3.6/site-packages/botocore/client.py", line 312, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/usr/local/lib/python3.6/site-packages/botocore/client.py", line 592, in _make_api_call
+    operation_model, request_dict)
+  File "/usr/local/lib/python3.6/site-packages/botocore/endpoint.py", line 141, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/usr/local/lib/python3.6/site-packages/botocore/endpoint.py", line 170, in _send_request
+    success_response, exception):
+  File "/usr/local/lib/python3.6/site-packages/botocore/endpoint.py", line 249, in _needs_retry
+    caught_exception=caught_exception, request_dict=request_dict)
+  File "/usr/local/lib/python3.6/site-packages/botocore/hooks.py", line 227, in emit
+    return self._emit(event_name, kwargs)
+  File "/usr/local/lib/python3.6/site-packages/botocore/hooks.py", line 210, in _emit
+    response = handler(**kwargs)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 183, in __call__
+    if self._checker(attempts, response, caught_exception):
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 251, in __call__
+    caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 277, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 317, in __call__
+    caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 223, in __call__
+    attempt_number, caught_exception)
+  File "/usr/local/lib/python3.6/site-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "https://cognito-idp.us-east-1.amazonaws.com/"
